@@ -40,9 +40,7 @@ jobs:
           echo "PROJECT_DIR=$(dirname "$FILE")" >> "$GITHUB_ENV"
 
       - name: Build Android APK
-        run: |
-          cd "$PROJECT_DIR"
-          gradle assembleDebug
+        run: gradle assembleDebug --console=plain --stacktrace --info
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
